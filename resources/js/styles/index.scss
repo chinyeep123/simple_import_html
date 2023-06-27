@@ -1,0 +1,138 @@
+//scss 语法糖包含常用的布局方式 flex column
+@import './scss-suger.scss';
+//重置 element-plus 样式
+@import './reset-elemenet-plus-style.scss';
+//动画文件
+@import './transition.scss';
+
+//reset style
+#app, html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+* {
+  box-sizing: border-box;
+}
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+a:focus,
+a:active {
+  outline: none;
+}
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+span,
+output {
+  display: inline-block;
+  line-height: 1;
+}
+
+.m-auto {
+  margin: auto;
+}
+
+//scroll
+@mixin main-show-wh() {
+  /* css 声明 */
+  //height: calc(100vh - #{$navBarHeight} - #{$tagViewHeight} - #{$appMainPadding * 2});
+  height: calc(100vh - #{var(--nav-bar-height)} - #{var(--tag-view-height)} - #{calc(var(--app-main-padding) * 2)});
+  width: 100%;
+}
+.scroll-y {
+  @include main-show-wh();
+  overflow-y: auto;
+}
+.scroll-x {
+  @include main-show-wh();
+  overflow-x: auto;
+}
+.scroll-xy {
+  @include main-show-wh();
+  overflow: auto;
+}
+
+.text-primary {
+  color: #409EFF;
+}
+
+.text-secondary {
+  color: #909399;
+}
+
+.text-danger {
+  color: #F56C6C;
+}
+
+.text-success {
+  color: #67C23A;
+}
+
+.text-success {
+  color: #E6A23C;
+}
+
+.font-weight-100 {
+  font-weight: 100;
+}
+
+.font-weight-600 {
+  font-weight: 600;
+}
+
+.line-height-loose {
+  line-height: 1.7;
+}
+.w-100 {
+  width: 100%;
+}
+
+/** Custom */
+.el-collapse-item__header {
+  padding: 15px;
+}
+.el-collapse-item__wrap {
+  padding: 10px;
+}
+/** End Custom */
+
+/* we will explain what these classes do next! */
+.slide-fade-enter-active {
+  transition: all 0.5s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
+}
+.text-none .el-checkbox__label{
+  display: none;
+}
